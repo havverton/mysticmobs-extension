@@ -1,0 +1,4 @@
+name: Mysticmobs Extension
+version: '${version}'
+main: io.recraft.mysticmobsextension.MysticmobsExtension
+api-version: 1.18
