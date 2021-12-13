@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicConditionLoadEvent;
 import io.lumine.xikage.mythicmobs.utils.logging.Log
+import org.bukkit.event.player.PlayerInteractEvent
 
 
 class MysticmobsExtension : JavaPlugin(), Listener {
@@ -18,6 +19,12 @@ class MysticmobsExtension : JavaPlugin(), Listener {
 
     override fun onDisable() {
         // Plugin shutdown logic
+    }
+
+    @EventHandler
+    fun onPlayerInteractEvent(event: PlayerInteractEvent){
+       val name =  NMSBiomeUtils.getBiomeName(event.clickedBlock!!.location)
+        event.player.sendMessage("$name")
     }
 
     @EventHandler
